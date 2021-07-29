@@ -1,6 +1,24 @@
 {% extends 'authenticate/base2.html' %}
 
 {% block content %}
-<title>User Register</title>
+<title>Register</title>
+<h2><b>User Registration</b></h2>
+
+
+<form method="POST" action= "{% url 'uregister' %}">
+
+        {% csrf_token%}
+
+        {% if form.errors %} 
+        <p>Registration error</p>
+        {% endif %}
+
+        {{form.as_p}}
+        {{profile.as_p}}
+        <input type="submit" value="Register" class="btn btn-secondary">
+
+
+</form>
+
 
       {% endblock %}

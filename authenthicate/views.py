@@ -2,6 +2,8 @@ from django.contrib import auth
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
+from .forms import SignUpForm, UserProfileForm
 
 
 def home(request):
@@ -29,11 +31,48 @@ def logout_user(request):
     return redirect('login')
 
 def register_user(request):
-    return render(request, 'authenticate/userRegister.html', {})
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        profile = UserProfileForm(request.POST)
+        if form.is_valid() and profile.is_valid():
+            user = form.save()
+
+            profile2 = profile.save(commit=False)
+            profile2.user = user
+            profile2.save()
 
 
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('home')
+
+    else:
+        form = SignUpForm()
+        profile = UserProfileForm()
+    context = {'form': form ,'profile': profile}
+    return render(request, 'authenticate/userRegister.html', context)
+
+
+
+
+    
 def register_restaurant(request):
-    return render(request, 'authenticate/cafeRegister.html', {})
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('home')
+
+    else:
+        form = UserCreationForm()
+    context = {'form': form}
+    return render(request, 'authenticate/cafeRegister.html', context)
 
 
 
