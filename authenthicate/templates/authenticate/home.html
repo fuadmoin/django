@@ -1,4 +1,9 @@
+{% extends 'authenticate/base.html' %}
 {% load static %}
+{% block content %}
+
+
+
 
 
 <!DOCTYPE html>
@@ -9,7 +14,7 @@
     <meta name="keywords" content="INTUITIVE">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Page 3</title>
+    <title>Home</title>
     <link rel="stylesheet" href="{% static 'homecss/nicepage.css' %}" media="screen">
 <link rel="stylesheet" href="{% static 'homecss/Page-3.css' %}" media="screen">
     <script class="u-script" type="text/javascript" src="{% static 'homecss/jquery-1.9.1.min.js' %}" defer=""></script>
@@ -27,32 +32,7 @@
     <meta property="og:title" content="Page 3">
     <meta property="og:type" content="website">
   </head>
-  <body class="u-body"><header class="u-clearfix u-header u-header" id="sec-534c"><div class="u-clearfix u-sheet u-sheet-1">
-        <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
-          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
-            <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
-              <svg><use xlink:href="#menu-hamburger"></use></svg>
-              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><symbol id="menu-hamburger" viewBox="0 0 16 16" style="width: 16px; height: 16px;"><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
-</symbol>
-</defs></svg>
-            </a>
-          </div>
-          <div class="u-nav-container">
-            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Page-3.html" style="padding: 10px 20px;">Page 3</a>
-</li></ul>
-          </div>
-          <div class="u-nav-container-collapse">
-            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
-              <div class="u-sidenav-overflow">
-                <div class="u-menu-close"></div>
-                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Page-3.html">Page 3</a>
-</li></ul>
-              </div>
-            </div>
-            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
-          </div>
-        </nav>
-      </div></header>
+  <body class="u-body">
     <section class="u-align-center u-clearfix u-palette-2-base u-section-1" id="carousel_ccd6">
       <img src="https://cdn.vox-cdn.com/thumbor/ebLyPNyZghyiG1TCxQJ5vI-qxvU=/0x0:1280x853/1200x900/filters:focal(538x325:742x529)/cdn.vox-cdn.com/uploads/chorus_image/image/69482129/Aerial_Image__1_.0.jpg" alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="1200" data-image-height="900">
       <div class="u-list u-list-1">
@@ -110,3 +90,4 @@
     </section>
   </body>
 </html>
+{% endblock %}

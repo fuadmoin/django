@@ -37,40 +37,27 @@
 
     
   </head>
-  <body style="background-color: black;">
-    <h5 class="text-lg-center text-light"  >Welcome, {{user.first_name}} </h5>
-   
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-     
-    
-  
-  <div class="container-fluid">
-   
-    <a class="navbar-brand" href="#">Food Ordering</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item " >
-          <a class="nav-link" href="#">Profile</a>
-        </li>
-        <li class="nav-item " >
-          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-        </li>
-      
-      
-      </ul>
-      
+  <body>
+      <div class="container">
+
+            {% if messages %}
+            {% for message in messages %}
+
+              <div class="alert alert-warning alert-dismissible"  role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+
+                </button>
+                    
+                </div>
+          {% endfor %}
+          {% endif %}
+
+
+
+        {% block content %}
+        {% endblock %}
     </div>
-  </div>
-</nav>
-      {% block content %}
-      {% endblock %}
-  
 
     <!-- Optional JavaScript; choose one of the two! -->
 
