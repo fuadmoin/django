@@ -2,5 +2,30 @@
 
 {% block content %}
 <title>Register</title>
-<h2>Restaurant Registration</h2>
+<br/>
+<h2 class="text-center">Restaurant Registration</h2>
+      <br/>
+      <div class="col-md-6 offset-md-3">
+
+      <form method="POST" enctype="multipart/form-data" action="{% url 'cregister' %}">
+
+      {% csrf_token%}
+
+      {% if form2.errors %} 
+      <p>Registration error</p>
+      {% endif %}
+
+      {{form2.as_p}}
+      {{cprof.as_p}}
+      
+      <input type="submit" value="Register" class="btn btn-secondary">
+
+
+      </form>
+
+      </div>
+
+
+
+
       {% endblock %}
