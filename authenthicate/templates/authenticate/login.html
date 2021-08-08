@@ -1,0 +1,30 @@
+{% extends 'authenticate/base2.html' %}
+
+{% block content %}
+<title >Login</title>
+<br> <br>
+
+    <h2 class="text-center "> <b>Login</b></h2>
+    
+    <div class="col-md-6 offset-md-3">
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Username</label>
+            <input type="text" class="form-control" id="exampleInputEmail1"  name="username" placeholder="Enter Username">
+            
+            </div>
+            <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Enter password">
+            </div>
+            
+            <button type="submit" class="btn btn-secondary ">Login</button>
+        </form>
+        <br> <br>
+        <a class="btn btn-primary" href="{% url 'uregister' %}" role="button">User Sign up</a>
+        <a class="btn btn-primary" href="{% url 'cregister' %}" role="button">Restaurant Sign up</a>
+        
+    </div>
+      {% endblock %}
